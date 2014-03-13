@@ -16,7 +16,7 @@ public class Quick {
 	    for (int i=0;i<l.length;i++) {
 		if (l[i] < pivot) 
 		    lower.add(l[i]);
-		else 
+		else if (l[i] > pivot)
 		    upper.add(l[i]);
 	    }
 	    lower.add(pivot);
