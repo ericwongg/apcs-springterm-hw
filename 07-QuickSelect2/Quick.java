@@ -54,11 +54,64 @@ public class Quick {
 	return a;
     }
 
+    public int partition(int[] a, int L, int R) {
+	Random rnd = new Random();
+	int pivoti = rnd.nextInt(R-L);
+	int pivot = a[pivoti];
+	int wall = L;
+
+	a[pivoti] = a[R];
+	a[R] = pivot;
+
+	for (int i=L;i<R;i++) {
+	    int cur = a[i];
+	    if (cur < pivot) {
+		a[i] = a[wall];
+		a[wall] = cur;
+		wall++;
+	    }
+	}
+
+	a[R] = a[wall];
+	a[wall] = pivot;
+
+	return wall;
+    }
+
+    public boolean inOrder(int[] a) {
+	for (int i=0;i<a.length-1;i++) {
+	    int last = a[i];
+	    if (a[i+1] < last)
+		return false;
+	}
+	return true;
+    }
+
+    public int[] quickSort2(int[] a) {
+	if (!inOrder(a)){
+	    partition(a, 0, a.length/2);
+	    partition(1, a.length/2+1, a.length);
+	else 
+	    return a;
+    }
+
+    public int[] makeArray2(int n) {
+	Random rnd = new Random();
+	int[] a = new int[n];
+	for (int i=0;i<n;i++)
+	    a[i]= rnd.nextInt(100);
+	return a;
+    }
+
     public static void main(String[] args) {
 	Quick q = new Quick();
-	Integer[] in = q.makeArray(10);
+	//Integer[] in = q.makeArray(10);
+	//System.out.println(Arrays.toString(in));
+	//Integer[] out = q.quickSort(in);
+	//System.out.println(Arrays.toString(out));
+	int[] in = q.makeArray2(10);
 	System.out.println(Arrays.toString(in));
-	Integer[] out = q.quickSort(in);
+	int[] out = q.quickSort2(in);
 	System.out.println(Arrays.toString(out));
 
     }
