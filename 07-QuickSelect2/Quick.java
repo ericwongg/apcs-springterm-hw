@@ -88,11 +88,11 @@ public class Quick {
     }
 
     public int[] quickSort2(int[] a) {
-	if (!inOrder(a)){
+	while (!inOrder(a)) {
 	    partition(a, 0, a.length/2);
-	    partition(a, a.length/2+1, a.length);
-	else 
-	    return a;
+	    partition(a, a.length/2+1, a.length-1);
+	}
+	return a;
     }
 
     public int[] makeArray2(int n) {
