@@ -1,9 +1,11 @@
 public class MyLinkedList {
 
     private Node head;
+    private Node tail;
 
     public MyLinkedList() {
-	head = null;
+	head = new Node("");
+	tail = head;
     }
 
     public void add(String d) {
@@ -13,11 +15,8 @@ public class MyLinkedList {
     }
 
     public void addEnd(String d) {
-	Node temp = head;
-	while (temp.getNext()!=null) {
-	    temp = temp.getNext();
-	}
-	temp.setNext(new Node(d));
+	tail.setNext(new Node (d));
+	tail = tail.getNext();
     }
 
     public String toString() {

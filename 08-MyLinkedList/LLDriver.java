@@ -14,13 +14,16 @@ public class LLDriver {
 	System.out.println(L);
        
 	System.out.println("Sully is at " + L.find("Sully"));
-	System.out.println("Length= " + L.length());
+	System.out.println("Length= " + L.size());
 
 	L.add(2, "Steve");
 	System.out.println(L);
 	L.set(3, "Jobs");
 	System.out.println(L);
 	System.out.println(L.remove(2));
+	System.out.println(L);
+
+	L.addEnd("Albert");
 	System.out.println(L);
 
     }
