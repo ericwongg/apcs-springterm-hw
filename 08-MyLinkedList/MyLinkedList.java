@@ -6,10 +6,10 @@ public class MyLinkedList<E> implements Iterator<E> {
     private Node<E> head;
 
     public Iterator<E> iterator(){
-	return new MyLLIterator(head);
+	return new MyLLIterator<E>(head);
     }
 
-    public MyLinkedList<E> () {
+    public MyLinkedList() {
 	head = null;
     }
 

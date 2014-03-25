@@ -4,9 +4,9 @@ import java.util.*;
 public class Node<E> {
 
     private E data;
-    private Node<E> next;
+    private Node next;
 
-    public Node<E>(E d) {
+    public Node(E d) {
 	data = d;
 	next = null;
     }
@@ -20,7 +20,7 @@ public class Node<E> {
     public void setNext(Node n) {
 	next = n;
     }
-    public Node<E> getNext() {
+    public Node getNext() {
 	return next;
     }
 
