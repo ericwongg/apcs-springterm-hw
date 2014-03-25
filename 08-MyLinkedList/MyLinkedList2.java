@@ -1,20 +1,14 @@
-public class MyLinkedList {
+public class MyLinkedList2 {
 
     private Node head;
     private Node tail;
 
-    public MyLinkedList() {
+    public MyLinkedList2() {
 	head = new Node("");
 	tail = head;
     }
 
     public void add(String d) {
-	Node temp = new Node(d);
-	temp.setNext(head);
-	head = temp;
-    }
-
-    public void addEnd(String d) {
 	tail.setNext(new Node (d));
 	tail = tail.getNext();
     }
@@ -91,7 +85,7 @@ public class MyLinkedList {
     }
 
     public int size() {
-	int l = 0;
+	int l = -1;
 	Node temp = head;
 	while (temp!=null) {
 	    temp = temp.getNext();

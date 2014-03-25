@@ -2,7 +2,7 @@ public class LLDriver {
 
     public static void main(String[] args) {
 
-	MyLinkedList L = new MyLinkedList();
+	MyLinkedList2 L = new MyLinkedList2();
 	//System.out.println(L);
 	L.add("Sully");
 	//System.out.println(L);
@@ -23,7 +23,7 @@ public class LLDriver {
 	System.out.println(L.remove(2));
 	System.out.println(L);
 
-	L.addEnd("Albert");
+	L.add("Albert");
 	System.out.println(L);
 
     }
