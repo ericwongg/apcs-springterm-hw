@@ -3,7 +3,7 @@ public class MyLinkedList {
     private Node head;
 
     public MyLinkedList() {
-	head = new Node("");
+	head = null;
     }
 
     public void add(String d) {
