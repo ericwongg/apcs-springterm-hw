@@ -3,7 +3,7 @@ public class MyLinkedList {
     private Node head;
 
     public MyLinkedList() {
-	head = null;
+	head = new Node("");
     }
 
     public void add(String d) {
@@ -32,9 +32,9 @@ public class MyLinkedList {
 
     public void add(int i, String s) {
 	Node temp = head;
-	for (int j=0;j<i;j++) {
+	for (int j=0;j<i+1;j++) {
 	    temp = temp.getNext(); 
-	    if (temp.equals(null) && j!=i-1)
+	    if (temp.equals(null) && j!=i)
 		System.exit(10);
 	}
 	Node add = new Node(s);
@@ -44,9 +44,9 @@ public class MyLinkedList {
 
     public String get(int i) {
 	Node temp = head;
-	for (int j=0;j<i;j++) {
+	for (int j=0;j<i+1;j++) {
 	    temp = temp.getNext();
-	    if (temp.equals(null) && j!=i-1)
+	    if (temp.equals(null) && j!=i)
 		System.exit(10);
 	}
 	return temp.getData();
@@ -55,9 +55,9 @@ public class MyLinkedList {
     public String set(int i, String s) {
 	String res;
 	Node temp = head;
-	for (int j=0;j<i;j++) {
+	for (int j=0;j<i+1;j++) {
 	    temp = temp.getNext();
-	    if (temp.equals(null) && j!=i-1)
+	    if (temp.equals(null) && j!=i)
 		System.exit(10);
 	}
 	res = temp.getData();
@@ -68,9 +68,9 @@ public class MyLinkedList {
     public String remove(int i) {
 	String res;
 	Node temp = head;
-	for (int j=0;j<i-1;j++) {
+	for (int j=0;j<i;j++) {
 	    temp = temp.getNext();
-	    if (temp.equals(null) && j!=i-2)
+	    if (temp.equals(null) && j!=i-1)
 		System.exit(10);
 	}
 	res = temp.getNext().getData();
@@ -83,7 +83,7 @@ public class MyLinkedList {
 	Node temp = head;
 	while (temp!=null) {
 	    if (temp.getData().equals(s))
-		return i;
+		return i-1;
 	    else
 		temp = temp.getNext();
 		i++;
