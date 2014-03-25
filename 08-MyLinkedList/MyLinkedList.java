@@ -1,28 +1,27 @@
-public class MyLinkedList {
+import java.io.*;
+import java.util.*;
 
-    private Node head;
+public class MyLinkedList<E> implements Iterator<E> {
 
-    public MyLinkedList() {
+    private Node<E> head;
+
+    public Iterator<E> iterator(){
+	return new MyLLIterator(head);
+    }
+
+    public MyLinkedList<E> () {
 	head = null;
     }
 
-    public void add(String d) {
-	Node temp = new Node(d);
+    public void add(E d) {
+	Node<E> temp = new Node<E>(d);
 	temp.setNext(head);
 	head = temp;
     }
 
-    public void addEnd(String d) {
-	Node temp = head;
-	while (temp.getNext()!=null) {
-	    temp = temp.getNext();
-	}
-	temp.setNext(new Node(d));
-    }
-
     public String toString() {
 	String res = "";
-	Node temp = head;
+	Node<E> temp = head;
 	while (temp!=null) {
 	    res = res + temp.getData() + ", ";
 	    temp = temp.getNext();
@@ -30,19 +29,19 @@ public class MyLinkedList {
 	return res;
     }
 
-    public void add(int i, String s) {
-	Node temp = head;
+    public void add(int i, E s) {
+	Node<E> temp = head;
 	for (int j=0;j<i+1;j++) {
 	    temp = temp.getNext(); 
 	    if (temp.equals(null) && j!=i)
 		System.exit(10);
 	}
-	Node add = new Node(s);
+	Node<E> add = new Node<E>(s);
 	add.setNext(temp.getNext());
 	temp.setNext(add);
     }
 
-    public String get(int i) {
+    public E get(int i) {
 	Node temp = head;
 	for (int j=0;j<i+1;j++) {
 	    temp = temp.getNext();
@@ -52,9 +51,9 @@ public class MyLinkedList {
 	return temp.getData();
     }
 
-    public String set(int i, String s) {
-	String res;
-	Node temp = head;
+    public E set(int i, E s) {
+	E res;
+	Node<E> temp = head;
 	for (int j=0;j<i+1;j++) {
 	    temp = temp.getNext();
 	    if (temp.equals(null) && j!=i)
@@ -65,9 +64,9 @@ public class MyLinkedList {
 	return res;
     }
 
-    public String remove(int i) {
-	String res;
-	Node temp = head;
+    public E remove(int i) {
+	E res;
+	Node<E> temp = head;
 	for (int j=0;j<i;j++) {
 	    temp = temp.getNext();
 	    if (temp.equals(null) && j!=i-1)
@@ -78,9 +77,9 @@ public class MyLinkedList {
 	return res;
     }
 
-    public int find(String s) {
+    public int find(E s) {
 	int i = 0;
-	Node temp = head;
+	Node<E> temp = head;
 	while (temp!=null) {
 	    if (temp.getData().equals(s))
 		return i-1;

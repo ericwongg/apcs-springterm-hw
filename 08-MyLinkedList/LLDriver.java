@@ -1,8 +1,11 @@
+import java.io.*;
+import java.util.*;
+
 public class LLDriver {
 
     public static void main(String[] args) {
 
-	MyLinkedList2 L = new MyLinkedList2();
+	MyLinkedList L = new MyLinkedList();
       	L.add("Sully");
        	L.add("Mike");
        	L.add("Randall");
@@ -21,6 +24,11 @@ public class LLDriver {
 
 	L.add("Albert");
 	System.out.println(L);
+
+	MyLLIterator<Node> it = L.iterator();
+	System.out.println();
+	while (it.hasNext())
+	    System.out.println(it.next());
 
     }
 

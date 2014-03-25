@@ -1,23 +1,26 @@
-public class Node {
+import java.io.*;
+import java.util.*;
 
-    private String data;
-    private Node next;
+public class Node<E> {
 
-    public Node(String d) {
+    private E data;
+    private Node<E> next;
+
+    public Node<E>(E d) {
 	data = d;
 	next = null;
     }
 
-    public void setData(String d) {
+    public void setData(E d) {
 	data = d;
     }
-    public String getData() {
+    public E getData() {
 	return data;
     }
     public void setNext(Node n) {
 	next = n;
     }
-    public Node getNext() {
+    public Node<E> getNext() {
 	return next;
     }
 
