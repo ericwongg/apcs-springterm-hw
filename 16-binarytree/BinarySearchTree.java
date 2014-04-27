@@ -10,14 +10,14 @@ public class BinarySearchTree {
 	Node temp = root;
 	Node point = temp;
 	while (temp != null) {
-	    if (x<temp.getData())
+	    point = temp;
+	    if (x < temp.getData())
 		temp = temp.getLeft();
 	    else 
 		temp = temp.getRight();
-	    point = temp;
 	}
 	Node add = new Node(x);
-	if (x<point.getData())
+	if (x < point.getData())
 	    point.setLeft(add);
 	else
 	    point.setRight(add);
@@ -25,13 +25,24 @@ public class BinarySearchTree {
 
     public node search(int x) {
 	node temp = root;
-	while ((temp != null) && (temp.getData() != x)) {
-	    if (x<temp.getData())
+	while (temp != null) {
+	    if (x == temp.getData())
+		return temp;
+	    else if (x < temp.getData())
 		temp = temp.getLeft();
 	    else
 		temp = temp.getRight();
 	}
-	return temp;
+	return null;
     }
+
+    public Node search2(Node c, int x) {
+	if (x == c.getData())
+	    return c;
+	else if (x < c.getData())
+	    c = c.getLeft();
+	else
+	    c = c.getRight();
+	return search2(c, x);
 
 }
