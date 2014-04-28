@@ -7,6 +7,10 @@ public class BinarySearchTree {
     }
 
     public void insert(int x) {
+	if (root == null) {
+	    root = new Node(x);
+	    return;
+	}
 	Node temp = root;
 	Node point = temp;
 	while (temp != null) {
@@ -36,6 +40,10 @@ public class BinarySearchTree {
 	return null;
     }
 
+    public Node search2() {
+	return search2(root, x);
+    }
+
     public Node search2(Node c, int x) {
 	if (x == c.getData())
 	    return c;
@@ -44,5 +52,6 @@ public class BinarySearchTree {
 	else
 	    c = c.getRight();
 	return search2(c, x);
+    }
 
 }
