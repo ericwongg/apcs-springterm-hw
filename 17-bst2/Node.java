@@ -9,11 +9,11 @@ public class Node {
 	right = null;
     }
 
-    public void setLeft(int d) {
-	left = new Node(d);
+    public void setLeft(Node l) {
+	left = l;
     }
-    public void setRight(int d) {
-	right = new Node(d);
+    public void setRight(Node r) {
+	right = r;
     }
 
     public int getData() {

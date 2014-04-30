@@ -1,12 +1,16 @@
 public class BinarySearchTree {
 
-    private node root;
+    private Node root;
 
-    public BinarySearchTree(int n) {
-	root = new Node(n);
+    public BinarySearchTree() {
+	root = null;
     }
 
     public void insert(int x) {
+	if (root == null) {
+	    root = new Node(x);
+	    return;
+	}
 	Node temp = root;
 	Node point = temp;
 	while (temp != null) {
@@ -23,8 +27,8 @@ public class BinarySearchTree {
 	    point.setRight(add);
     }
 
-    public node search(int x) {
-	node temp = root;
+    public Node search(int x) {
+	Node temp = root;
 	while (temp != null) {
 	    if (x == temp.getData())
 		return temp;
@@ -43,7 +47,7 @@ public class BinarySearchTree {
 	    c = c.getLeft();
 	else
 	    c = c.getRight();
-	return search2(c, x);
+	return rsearch(c, x);
     }
 
     public Node searchParent(int x) {
@@ -83,9 +87,38 @@ public class BinarySearchTree {
 	}
 	else {
 	    Node smallest = del.getRight();
-	    this.remove(smallest);
-	    parent.setRight(smallest);
+	    this.remove(smallest.getData());
+	    par.setRight(smallest);
 	}
+    }
+
+    public void traverse() {
+	traverse(root);
+    }
+
+    public void traverse(Node c) {
+	if (c == null) 
+	    return;
+	else {
+	    traverse(c.getLeft());
+	    System.out.println(c);
+	    traverse(c.getRight());
+	}
+    }
+
+    public static void main(String[] args) {
+	BinarySearchTree b = new BinarySearchTree();
+	b.insert(10);
+	b.insert(3);
+	b.insert(4);
+	b.insert(15);
+	b.insert(24);
+	b.insert(13);
+	b.insert(14);
+	b.traverse();
+	b.remove(3);
+	b.remove(15);
+	b.traverse();
     }
 
 }
