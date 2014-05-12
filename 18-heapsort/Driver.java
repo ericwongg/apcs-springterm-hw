@@ -10,6 +10,7 @@ public class Driver {
 	h.insert(13);
 	h.insert(14);
 
+	System.out.println(h);
 
 	System.out.println(h.removeMax());
 	System.out.println(h.removeMax());

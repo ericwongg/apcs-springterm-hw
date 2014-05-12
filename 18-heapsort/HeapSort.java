@@ -20,21 +20,21 @@ public class HeapSort {
 	int child1 = i*2;
 	int child2 = i*2 + 1;
 
-	if (heap[i] > heap[child1] && heap[i] > heap[child2])
-	    return;
-	else {
-	    int temp = heap[i];
-	    if (heap[i] < heap[child1] && heap[child1] > heap[child2]) {
-		heap[i] = heap[child1];
-		heap[child1] = temp;
-		System.out.println(this);
-		pushDown(child1);
-	    }
-	    else if (heap[i] < heap[child2] && heap[child2] > heap[child1]) {
-		heap[i] = heap[child2];
-		heap[child2] = temp;
-		System.out.println(this);
-		pushDown(child2);
+	if(child1 <= lastI && child2 <= lastI) {
+	    if (heap[i] > heap[child1] && heap[i] > heap[child2])
+		return;
+	    else {
+		int temp = heap[i];
+		if (heap[i] < heap[child1] && heap[child1] > heap[child2]) {
+		    heap[i] = heap[child1];
+		    heap[child1] = temp;
+		    pushDown(child1);
+		}
+		else if (heap[i] < heap[child2] && heap[child2] > heap[child1]) {
+		    heap[i] = heap[child2];
+		    heap[child2] = temp;
+		    pushDown(child2);
+		}
 	    }
 	}
     }
@@ -63,8 +63,8 @@ public class HeapSort {
 	}
 
 	//replace root with lowest leaf;
-	int temp = heap[1];
-	heap[1] = heap[lastI];
+	int temp = heap[0];
+	heap[0] = heap[lastI];
 	heap[lastI] = temp;
 	lastI--;
 
